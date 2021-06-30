@@ -1,1 +1,124 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+
+struct node
+{
+    int val  ;
+    struct node * nxt ;
+
+};
+typedef struct node node;
+typedef node* liste;
+
+
+liste creat_node(int val  )
+{
+    liste C = (liste)malloc(sizeof(node));
+    C ->val = val;
+    C ->nxt = NULL ;
+    return C ;
+}
+
+
+liste add_node(int x , liste L)
+{
+    liste T = creat_node( x );
+    if(L== NULL)
+        L = C;
+    else
+    {
+        liste temp =L;
+        while (temp->nxt != NULL)
+        {
+            temp = temp->nxt;
+        }
+        temp->nxt = L ;
+    }
+    return L;
+}
+
+liste arr_to_liste(int*  tab , int n)
+{
+    liste C = creat_node(tab[0]);
+    for(int i=1 ; i<n ; i++)
+    {
+        C = add_node(tab[i] , C);
+    }
+    return C;
+}
+
+
+void print_liste(liste T)
+{
+    if(T = NULL)
+    printf("[]");
+    else
+    {
+        printf("[");
+        liste temp = T;
+        while (temp->nxt != NULL)
+        {
+            printf(" %d ," ,temp->val);
+            temp = temp->nxt;
+        }
+        printf(" %d ]" ,temp->val);
+    }
+    return;
+}
+
+
+liste remove_node( int n , liste L )
+{
+    
+    liste T,Q;
+    Q=L;
+    T=L;
+    if(L->next == NULL)
+    	return L;    	
+    int i = 0;
+    while( Q->next != NULL )
+    {
+	
+	    Q = Q->nxt;
+	    i++;
+    }
+    int j;
+    j=i;
+    i = 0 ;
+    Q=L;
+    if(n<0 || n> j )
+	      printf("ERR04" );
+    if(n>0 || n< j)
+    {
+	    while(i<n)
+	    {	
+		    T = Q;
+		    Q = Q->nxt;
+	    	i++;
+	    }
+	  T->nxt = Q->nxt;
+	   free(T);
+	return L;
+    }			  
+    if(n == 0)
+    {
+    t_liste temp=L;
+    L=L->nxt;
+    free(temp);
+    }
+
+}
+
+
+void free_node(list L)
+{
+    while(L!=NULL)
+    {
+        list temp=L;
+        L=L->nxt;
+        free(temp);
+    }
+    return ;
+}
 
