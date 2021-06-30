@@ -3,7 +3,11 @@
 /*
 ** Note: iterating pointer array is the same as stack array.
 */
-void    print_table(int *tab, int size)
+void print_table(int *tab, int size)
 {
-    // iterate the array tab and print its elements
+    for (int  =0;i<size;i++)
+    {
+        printf("%d ",tab[i]);
+    }
+    return ;
 }
